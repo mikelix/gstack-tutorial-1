@@ -1,0 +1,11 @@
+# Local Claude Code tooling config — not part of the tutorial content
+.claude/
+
+# Unrelated scratch files in this shared working directory
+ai_garry_tan/
+button.html
+fibonacci.py
+kgv/
+
+# Microsoft Office lock/temp files
+~$*

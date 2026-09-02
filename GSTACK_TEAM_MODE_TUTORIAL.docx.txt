@@ -1,0 +1,755 @@
+GSTACK TEAM MODE TUTORIAL
+Complete Guide for Your Team
+
+================================================================================
+TABLE OF CONTENTS
+================================================================================
+
+1. Introduction
+2. What is Gstack Team Mode?
+3. Prerequisites
+4. Installation Guide
+   - Claude Code
+   - OpenAI Codex
+   - Tencent Workbuddy
+5. Quick Start (5-Minute Overview)
+6. Step-by-Step Tutorial (Complete Workflow)
+7. The Five Perspectives
+8. Troubleshooting
+9. Resources and Next Steps
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+Welcome to the Gstack Team Mode Tutorial!
+
+This document teaches your team how to use gstack team mode to collaborate on
+any project using five AI specialists (CEO, PM, Engineer, QA, DevOps).
+
+The tutorial uses a minimal project (hello_world.py) to teach the concepts, then
+scales to your real projects.
+
+**Time Investment:** 11 hours (can be compressed to 6-8 hours with parallelization)
+**Team Size:** Works for 1 person (solo) or teams of any size
+**Difficulty:** Beginner-friendly (no prior gstack experience needed)
+**Outcome:** Your team will understand how to apply gstack workflows to any project
+
+================================================================================
+2. WHAT IS GSTACK TEAM MODE?
+================================================================================
+
+Gstack is an AI-powered workflow tool that runs multi-perspective reviews of
+your projects. Instead of one person reviewing everything, you get input from
+five specialized AI roles:
+
+**The Five Perspectives:**
+
+1. **AI CEO** (/plan-ceo-review)
+   - Validates strategy and scope
+   - Challenges assumptions and premises
+   - Identifies risks and opportunities
+   - Asks: "Is this the right problem to solve?"
+
+2. **AI Project Manager** (/spec)
+   - Breaks work into concrete tasks
+   - Creates timelines and schedules
+   - Identifies dependencies
+   - Asks: "How do we break this down?"
+
+3. **AI Software Engineer** (/plan-eng-review)
+   - Validates architecture and design
+   - Confirms technical feasibility
+   - Creates test plans
+   - Asks: "Can we actually build this?"
+
+4. **AI QA/QC Engineer** (/qa-only)
+   - Tests the entire workflow
+   - Finds bugs and edge cases
+   - Validates quality
+   - Asks: "Does it work?"
+
+5. **AI DevOps Engineer** (/ship)
+   - Plans deployment
+   - Creates release checklist
+   - Plans rollback strategy
+   - Asks: "Can we ship it?"
+
+**Key Benefits:**
+
+✓ Multiple perspectives reduce blind spots
+✓ All decisions are documented in an audit trail
+✓ Async collaboration (no meetings needed)
+✓ Scales from solo projects to large teams
+✓ Can be applied to any type of project
+
+================================================================================
+3. PREREQUISITES
+================================================================================
+
+Before starting, make sure you have:
+
+**Required:**
+- One of: Claude Code, OpenAI Codex, or Tencent Workbuddy installed
+- Git installed (for version control)
+- Basic familiarity with command line / terminal
+- A simple project to practice with (or use hello_world.py)
+
+**Optional but Helpful:**
+- GitHub account (to share repo with team)
+- Slack or Conductor workspace (for team communication)
+- 2-3 team members (to experience real collaboration)
+
+**Time to Set Up:**
+- Claude Code: 5 minutes
+- OpenAI Codex: 10 minutes
+- Tencent Workbuddy: 2 minutes (upload zip file)
+
+================================================================================
+4. INSTALLATION GUIDE
+================================================================================
+
+---
+4.1 CLAUDE CODE INSTALLATION
+---
+
+**Option A: Using Claude Code CLI (Recommended)**
+
+Step 1: Install Claude Code
+   - Visit: https://claude.com/claude-code
+   - OR use CLI: `pip install claude-code`
+
+Step 2: Install gstack
+   - Navigate to: ~/.claude/skills/
+   - Clone gstack:
+     `git clone https://github.com/anthropics/gstack.git`
+   - Or download: https://github.com/anthropics/gstack/releases
+
+Step 3: Verify Installation
+   - Run: `claude --version`
+   - Run: `/plan-ceo-review --help`
+   - If help appears, you're ready!
+
+Step 4: Test It
+   - Create a simple PLAN.md file
+   - Run: `/plan-ceo-review PLAN.md`
+   - You should see output within 1-2 minutes
+
+**Common Issues:**
+- "Command not found": Make sure Claude Code is in your PATH
+- "Skills not available": Restart Claude Code after installation
+- "Permission denied": Run with sudo or check directory permissions
+
+---
+4.2 OPENAI CODEX INSTALLATION
+---
+
+**Option A: Using OpenAI API**
+
+Step 1: Get OpenAI API Key
+   - Visit: https://platform.openai.com/account/api-keys
+   - Create new secret key
+   - Copy and save it (you'll need it)
+
+Step 2: Set Environment Variable
+   - Mac/Linux:
+     `export OPENAI_API_KEY="sk-xxxxx"`
+   - Windows PowerShell:
+     `$env:OPENAI_API_KEY="sk-xxxxx"`
+   - Windows CMD:
+     `set OPENAI_API_KEY=sk-xxxxx`
+
+Step 3: Install gstack for Codex
+   - Download gstack-codex edition
+   - Unzip to your project directory
+   - Run: `./setup` (Mac/Linux) or `setup.ps1` (Windows)
+
+Step 4: Verify Installation
+   - Run: `codex --version`
+   - Run: `./gstack-codex /plan-ceo-review --help`
+   - You should see the skill help text
+
+Step 5: Test It
+   - Create PLAN.md
+   - Run: `./gstack-codex /plan-ceo-review PLAN.md`
+   - Wait 1-3 minutes for output
+
+**Pricing Note:**
+- Codex usage is billed per token
+- Tutorial costs approximately $2-5 USD for all 5 reviews
+- Budget conscious? Use Claude Code instead (included in subscription)
+
+---
+4.3 TENCENT WORKBUDDY INSTALLATION (Your Tested Method!)
+---
+
+You've confirmed this works! Here's how to do it:
+
+Step 1: Prepare gstack
+   - Download gstack from GitHub or your local copy
+   - Create a zip file: `gstack.zip` (contains all gstack files)
+
+Step 2: Upload to Workbuddy
+   - Open Tencent Workbuddy
+   - Go to Skills section
+   - Click "Upload Custom Skill"
+   - Select `gstack.zip`
+   - Wait for upload to complete
+
+Step 3: Configure
+   - In Workbuddy Skills settings, enable gstack
+   - Restart Workbuddy
+   - You should see gstack skills in the skill menu
+
+Step 4: Verify Installation
+   - Create PLAN.md in your Workbuddy project
+   - Type: `/plan-ceo-review PLAN.md`
+   - Run the skill
+   - You should see CEO_REVIEW.md generated
+
+Step 5: Test the Full Workflow
+   - Run all 5 skills in sequence (or parallel)
+   - Watch the review documents get generated
+   - Beautiful! You now have all 5 perspectives
+
+**Advantages of Workbuddy:**
+✓ Easiest installation (just zip upload)
+✓ No API keys needed
+✓ All skills work offline
+✓ Team can collaborate in same workspace
+✓ No additional costs
+
+================================================================================
+5. QUICK START (5-MINUTE OVERVIEW)
+================================================================================
+
+Want to see it work in 5 minutes? Do this:
+
+**Step 1: Create a Simple Project**
+
+Create a file called PLAN.md:
+---
+# My First Gstack Project
+
+## Goal
+Learn how gstack team mode works
+
+## Timeline
+1 week
+
+## Success Criteria
+- All 5 reviews completed
+- Understanding how each role contributes
+---
+
+**Step 2: Run the CEO Review**
+
+In your terminal:
+```
+/plan-ceo-review PLAN.md
+```
+
+Wait 1-2 minutes. You'll see CEO_REVIEW.md generated.
+
+**Step 3: See the Output**
+
+Open CEO_REVIEW.md (in same directory as PLAN.md)
+
+You'll see:
+- Strategic assessment
+- Premise validation
+- Risk analysis
+- Verdict: APPROVED or NEEDS_CHANGES
+
+**Step 4: That's It!**
+
+You've just experienced one perspective. Imagine running all 5 and seeing
+how they work together to validate your project.
+
+**Next: Do the full tutorial below.**
+
+================================================================================
+6. STEP-BY-STEP TUTORIAL (COMPLETE WORKFLOW)
+================================================================================
+
+This is the full 3-week learning journey. Follow it exactly.
+
+---
+PHASE 0: SETUP (Day 1 - 1 hour)
+---
+
+Objective: Prepare your environment and create the learning project
+
+Step 1: Create Project Directory
+   Command: mkdir hello_world.py
+   Command: cd hello_world.py
+
+Step 2: Initialize Git
+   Command: git init
+   Command: git config user.email "your@email.com"
+   Command: git config user.name "Your Name"
+
+Step 3: Create Project Files
+
+Create file: hello_world.py
+Content:
+```
+print("hello world")
+```
+
+Create file: PLAN.md
+Content:
+```
+# hello_world.py Team Mode Tutorial
+
+## Overview
+A minimal Python project demonstrating gstack team mode
+collaboration with multiple AI roles.
+
+## Key Tasks
+
+### 1. GitHub Repository Setup
+- Create GitHub repo
+- Push code and documentation
+
+### 2. Team Reviews
+- AI CEO: Strategic review
+- AI PM: Task breakdown
+- AI Engineer: Architecture validation
+- AI QA: Quality assurance
+- AI DevOps: Deployment planning
+
+### 3. Documentation
+- Create learnings document
+- Final team sign-off
+
+## Success Criteria
+1. Code pushed to GitHub
+2. All 5 reviews completed
+3. Team workflow documentation complete
+4. Decision audit trail complete
+5. Ready to teach others
+
+## Timeline
+- Week 1: Setup and prerequisites
+- Week 2: Run all 5 team reviews
+- Week 3: Consolidate findings and document learnings
+```
+
+Step 4: Make First Commit
+   Command: git add .
+   Command: git commit -m "Initial commit: project setup"
+
+**Checkpoint:** You now have a git repo with PLAN.md. Ready for reviews!
+
+---
+PHASE 1: CEO REVIEW (Week 2, Day 1 - 1 hour)
+---
+
+Objective: Validate strategy, scope, and assumptions
+
+Step 1: Run CEO Review
+   Command: /plan-ceo-review PLAN.md
+
+   Wait 1-2 minutes for execution
+
+Step 2: Review Output
+   File created: CEO_REVIEW.md
+
+   Read the file - it contains:
+   • Strategic assessment
+   • Premise challenge
+   • Scope analysis
+   • Risk assessment
+   • Verdict (APPROVED/NEEDS_CHANGES)
+
+Step 3: Understand the Findings
+   Key questions CEO answers:
+   ✓ Is this the right problem?
+   ✓ Are our assumptions valid?
+   ✓ Is scope right-sized?
+   ✓ What are the risks?
+
+Step 4: Commit Results
+   Command: git add CEO_REVIEW.md
+   Command: git commit -m "feat: CEO review findings"
+
+**Checkpoint:** You've got the strategic perspective. What's the plan?
+
+---
+PHASE 2: PROJECT MANAGER REVIEW (Week 2, Day 2-3 - 1.5 hours)
+---
+
+Objective: Break strategy into concrete tasks and timeline
+
+Step 1: Run PM Review
+   Command: /spec PLAN.md
+
+   Wait 1-2 minutes
+
+Step 2: Review Output
+   File created: PM_REVIEW.md
+
+   Contains:
+   • Task breakdown (concrete, numbered tasks)
+   • Timeline (Week 1, 2, 3)
+   • Dependencies (what depends on what)
+   • Effort estimates
+   • Acceptance criteria per task
+
+Step 3: Understand the Breakdown
+   Key questions PM answers:
+   ✓ What are the concrete tasks?
+   ✓ What's the timeline?
+   ✓ What depends on what?
+   ✓ How long will it take?
+   ✓ What's the critical path?
+
+Step 4: Commit Results
+   Command: git add PM_REVIEW.md
+   Command: git commit -m "feat: project manager task breakdown"
+
+**Checkpoint:** Tasks are clear. Can we actually build it?
+
+---
+PHASE 3: ENGINEER REVIEW (Week 2, Day 4 - 1.5 hours)
+---
+
+Objective: Validate feasibility and design architecture
+
+Step 1: Run Engineer Review
+   Command: /plan-eng-review PLAN.md
+
+   Wait 1-2 minutes
+
+Step 2: Review Output
+   File created: ENGINEER_REVIEW.md
+
+   Contains:
+   • Code quality assessment
+   • Architecture diagram
+   • Implementation strategy
+   • Test plan
+   • Technical risks
+   • Feasibility verdict
+
+Step 3: Understand the Assessment
+   Key questions Engineer answers:
+   ✓ Can we actually build this?
+   ✓ What's the architecture?
+   ✓ What are the technical risks?
+   ✓ What needs testing?
+   ✓ Is it feasible?
+
+Step 4: Commit Results
+   Command: git add ENGINEER_REVIEW.md
+   Command: git commit -m "feat: engineer architecture review"
+
+**Checkpoint:** Architecture is sound. Does it work?
+
+---
+PHASE 4: QA REVIEW (Week 2, Day 5 - 1 hour)
+---
+
+Objective: Test everything and validate quality
+
+Step 1: Run QA Review
+   Command: /qa-only
+
+   Wait 1 minute
+
+Step 2: Review Output
+   File created: QA_REVIEW.md
+
+   Contains:
+   • Test results (passed/failed)
+   • Bug report (if any)
+   • Coverage assessment
+   • Edge cases covered
+   • Quality score
+   • Readiness verdict
+
+Step 3: Understand the Results
+   Key questions QA answers:
+   ✓ Does it work?
+   ✓ What breaks?
+   ✓ What's not tested?
+   ✓ Is it production-ready?
+   ✓ What edge cases exist?
+
+Step 4: Commit Results
+   Command: git add QA_REVIEW.md
+   Command: git commit -m "feat: QA testing and quality review"
+
+**Checkpoint:** Quality is assured. Ready to ship?
+
+---
+PHASE 5: DEVOPS REVIEW (Week 3, Day 1 - 1 hour)
+---
+
+Objective: Plan deployment and prepare for release
+
+Step 1: Run DevOps Review
+   Command: /ship
+
+   Wait 1 minute
+
+Step 2: Review Output
+   File created: DEVOPS_REVIEW.md
+
+   Contains:
+   • Pre-flight checklist
+   • Deployment steps
+   • Monitoring plan
+   • Rollback strategy
+   • Release approval
+
+Step 3: Understand the Plan
+   Key questions DevOps answers:
+   ✓ Can we ship it?
+   ✓ What's the deployment plan?
+   ✓ How do we monitor it?
+   ✓ How do we rollback if needed?
+   ✓ Are we production-ready?
+
+Step 4: Commit Results
+   Command: git add DEVOPS_REVIEW.md
+   Command: git commit -m "feat: DevOps deployment planning"
+
+**Checkpoint:** You've got all 5 perspectives!
+
+---
+PHASE 6: CONSOLIDATE & DOCUMENT (Week 3, Day 2-3 - 1.5 hours)
+---
+
+Objective: Bring all findings together and document learnings
+
+Step 1: Read All 5 Reviews
+   Open and read in order:
+   1. CEO_REVIEW.md (strategy)
+   2. PM_REVIEW.md (tasks)
+   3. ENGINEER_REVIEW.md (architecture)
+   4. QA_REVIEW.md (quality)
+   5. DEVOPS_REVIEW.md (deployment)
+
+Step 2: Create LEARNINGS.md
+   Create file: LEARNINGS.md
+
+Content:
+```
+# What We Learned
+
+## From CEO Review
+- [Key insight 1]
+- [Key insight 2]
+
+## From PM Review
+- [Key insight 1]
+- [Key insight 2]
+
+## From Engineer Review
+- [Key insight 1]
+- [Key insight 2]
+
+## From QA Review
+- [Key insight 1]
+- [Key insight 2]
+
+## From DevOps Review
+- [Key insight 1]
+- [Key insight 2]
+
+## Cross-Team Themes
+- Theme 1: [appeared in multiple reviews]
+- Theme 2: [appeared in multiple reviews]
+
+## How to Apply to Real Projects
+1. [Application 1]
+2. [Application 2]
+
+## Next Steps
+1. [Next step 1]
+2. [Next step 2]
+```
+
+Step 3: Commit and Celebrate
+   Command: git add LEARNINGS.md
+   Command: git commit -m "docs: consolidate learnings from all 5 reviews"
+   Command: git log --oneline
+
+   You should see 7-8 commits showing the complete workflow!
+
+**You're Done!** You've successfully completed the gstack team mode tutorial.
+
+================================================================================
+7. THE FIVE PERSPECTIVES (Quick Reference)
+================================================================================
+
+Print this out or bookmark it. Use for any project.
+
+┌─────────────────────────────────────────────────────────────┐
+│ PERSPECTIVE 1: CEO (Strategic)                              │
+├─────────────────────────────────────────────────────────────┤
+│ Command:     /plan-ceo-review PLAN.md                       │
+│ Questions:   Is this right? Are assumptions valid?          │
+│ Output:      CEO_REVIEW.md (250+ lines)                     │
+│ Time:        1-2 minutes execution, 15 min reading           │
+│ Team role:   Leadership, strategy validation                │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│ PERSPECTIVE 2: PROJECT MANAGER (Planning)                   │
+├─────────────────────────────────────────────────────────────┤
+│ Command:     /spec PLAN.md                                  │
+│ Questions:   How do we break it down? What's the timeline?  │
+│ Output:      PM_REVIEW.md (450+ lines)                      │
+│ Time:        1-2 minutes execution, 30 min reading           │
+│ Team role:   Planning, task definition, scheduling          │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│ PERSPECTIVE 3: ENGINEER (Architecture)                      │
+├─────────────────────────────────────────────────────────────┤
+│ Command:     /plan-eng-review PLAN.md                       │
+│ Questions:   Can we build it? What's the architecture?      │
+│ Output:      ENGINEER_REVIEW.md (500+ lines)                │
+│ Time:        1-2 minutes execution, 30 min reading           │
+│ Team role:   Technical lead, architecture validation        │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│ PERSPECTIVE 4: QA ENGINEER (Quality)                        │
+├─────────────────────────────────────────────────────────────┤
+│ Command:     /qa-only                                       │
+│ Questions:   Does it work? What breaks? What's not tested?  │
+│ Output:      QA_REVIEW.md (380+ lines)                      │
+│ Time:        1 minute execution, 20 min reading              │
+│ Team role:   QA lead, quality validation                    │
+└─────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────┐
+│ PERSPECTIVE 5: DEVOPS (Deployment)                          │
+├─────────────────────────────────────────────────────────────┤
+│ Command:     /ship                                          │
+│ Questions:   Can we ship it? How do we deploy? Rollback?    │
+│ Output:      DEVOPS_REVIEW.md (530+ lines)                  │
+│ Time:        1 minute execution, 20 min reading              │
+│ Team role:   DevOps/Release engineer                        │
+└─────────────────────────────────────────────────────────────┘
+
+================================================================================
+8. TROUBLESHOOTING
+================================================================================
+
+Problem: "Command not found: /plan-ceo-review"
+Solution:
+  - Verify gstack is installed in ~/.claude/skills/
+  - Restart Claude Code or Workbuddy
+  - Check that PLAN.md exists in current directory
+
+Problem: "Skill times out after 10 minutes"
+Solution:
+  - Network is slow; try again
+  - For Codex: make sure OPENAI_API_KEY is set
+  - Try a simpler PLAN.md (fewer sections)
+
+Problem: "Generated review document is empty or incomplete"
+Solution:
+  - Skill ran but didn't generate output
+  - Check file exists: ls -la *.md
+  - Re-run the skill
+  - If still empty, check logs for errors
+
+Problem: "Collaborator can't see findings in Conductor"
+Solution:
+  - Make sure Conductor workspace is created
+  - Invite collaborator to workspace
+  - Post review documents to Conductor manually
+  - Verify they have access permissions
+
+Problem: "Git commits keep failing"
+Solution:
+  - Check git config: git config --global user.email
+  - Make sure you've added files: git add .
+  - Try committing with full message: git commit -m "message"
+
+Problem: "Team doesn't understand what each review means"
+Solution:
+  - Print out Section 7 (The Five Perspectives)
+  - Have them read one review at a time
+  - Discuss key findings in team meeting
+  - Connect findings back to your actual project
+
+================================================================================
+9. RESOURCES AND NEXT STEPS
+================================================================================
+
+After This Tutorial:
+
+1. **Your First Real Project**
+   - Pick a real project from your backlog
+   - Run the same 5 reviews
+   - Watch how much clearer the decisions are
+   - Bring team findings to next planning meeting
+
+2. **Teaching Your Team**
+   - Share this document with your team
+   - Have them follow the tutorial together
+   - Discuss findings in team meeting
+   - Use gstack workflow on your next project
+
+3. **Scaling to Larger Projects**
+   - Same 5 reviews work for 10x larger projects
+   - More complex projects = deeper insights
+   - Timeline extends but structure stays same
+
+4. **Advanced Topics** (After basic tutorial)
+   - Running reviews in parallel (compress 3 weeks to 2-3 days)
+   - Integrating with GitHub for team collaboration
+   - Using Conductor workspace for async discussion
+   - Creating decision audit trails
+   - Scaling to multiple projects
+
+5. **Resources**
+   - Gstack GitHub: https://github.com/anthropics/gstack
+   - Claude Code: https://claude.com/claude-code
+   - OpenAI Codex: https://platform.openai.com/codex
+   - Tencent Workbuddy: (your internal resource)
+
+6. **Support**
+   - Having issues? Check Section 8 (Troubleshooting)
+   - Questions? Have your team discuss findings
+   - Want to go deeper? Run tutorial again with real project
+
+================================================================================
+FINAL CHECKLIST
+================================================================================
+
+Before declaring tutorial complete, verify:
+
+□ Day 1: Git repo created with PLAN.md
+□ Day 2: CEO review generated and committed
+□ Day 3: PM review generated and committed
+□ Day 4: Engineer review generated and committed
+□ Day 5: QA review generated and committed
+□ Day 1 (Week 3): DevOps review generated and committed
+□ Day 2-3 (Week 3): LEARNINGS.md written and committed
+□ Git log shows 7-8 commits
+□ All 5 perspectives understood
+□ Ready to apply to real projects
+
+If all boxes checked: ✅ TUTORIAL COMPLETE
+
+================================================================================
+
+Good luck with your team! 🚀
+
+This tutorial shows the power of gstack team mode. By running through all five
+perspectives, you've learned not just what each role does, but how they work
+together to make better decisions.
+
+Now teach others. Your team will thank you.
+
+================================================================================
+END OF TUTORIAL DOCUMENT
+================================================================================
