@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Setup / Access Help
+    url: https://github.com/mikelix/gstack-tutorial-1/blob/master/COLLABORATOR_ACCESS_GUIDE.md
+    about: Read this first if you're stuck on forking, cloning, or authentication — most setup problems are already answered here.
+  - name: Office Skills Install Help
+    url: https://github.com/mikelix/gstack-tutorial-1/blob/master/OFFICE_SKILLS_INSTALL_GUIDE.md
+    about: If you're producing your own tutorial documents and need the docx/pptx/xlsx/pdf skills installed.
